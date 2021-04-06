@@ -169,54 +169,6 @@ def move(board, y, x, dir):
         raise Exception('Unable to move y%sx%s in direction %s, To near the edge' % (y, x, dir))
 
 
-def move2(board, y, x, dir):
-    if dir == DIR.LEFT:
-        if x <= 1: 
-            raise Exception('Unable to move y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not board[y][x-1] == 'I':
-            raise Exception('Unable to move y%sx%s in direction %s, Nothing to jump over' % (y,x,dir))
-        if not board[y][x-2] == 'O':
-            raise Exception('Unable to move y%sx%s in direction %s, Target is occupied' % (y,x,dir))
-
-        board[y][x-2] = 'I'
-        board[y][x-1] = 'O'
-        board[y][x-0] = 'O'
-
-    elif dir == DIR.RIGHT:
-        if x >= 7:
-            raise Exception('Unable to move y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not board[y][x+1] == 'I':
-            raise Exception('Unable to move y%sx%s in direction %s, Nothing to jump over' % (y,x,dir))
-        if not board[y][x+2] == 'O':
-            raise Exception('Unable to move y%sx%s in direction %s, Target is occupied' % (y,x,dir))
-        board[y][x+2] = 'I'
-        board[y][x+1] = 'O'
-        board[y][x+0] = 'O' 
-
-    elif dir == DIR.UP:
-        if y <= 1:
-            raise Exception('Unable to move y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not board[y-1][x] == 'I':
-            raise Exception('Unable to move y%sx%s in direction %s, Nothing to jump over' % (y,x,dir))
-        if not board[y-2][x] == 'O':
-            raise Exception('Unable to move y%sx%s in direction %s, Target is occupied' % (y,x,dir))
-        board[y-2][x] = 'I'
-        board[y-1][x] = 'O'
-        board[y-0][x] = 'O'
-
-    elif dir == DIR.DOWN:
-        if y >= 7:
-            raise Exception('Unable to move y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not board[y+1][x] == 'I':
-            raise Exception('Unable to move y%sx%s in direction %s, Nothing to jump over' % (y,x,dir))
-        if not board[y+2][x] == 'O':
-            raise Exception('Unable to move y%sx%s in direction %s, Target is occupied' % (y,x,dir))
-        board[y+2][x] = 'I'
-        board[y+1][x] = 'O'
-        board[y+0][x] = 'O'
-    else:
-        raise Exception('Unable to move y%sx%s in direction %s, Unknown direction' % (y,x,repr(dir)))
-
 def undo(board, y, x, dir):
     try:
         if dir == DIR.LEFT:
@@ -250,44 +202,6 @@ def undo(board, y, x, dir):
             raise Exception('Unable to undo y%sx%s in direction %s, Unknown direction' % (y, x, repr(dir)))
     except IndexError:
         raise Exception('Unable to undo y%sx%s in direction %s, To near the edge' % (y, x, dir))
-def undo2(board, y, x, dir):
-    if dir == DIR.LEFT:
-        if x <= 1:
-            raise Exception('Unable to undo y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not (board[y][x-2] == 'I' and board[y][x-1] == 'O' and board[y][x-0] == 'O'):
-           raise Exception('Unable to undo y%sx%s in direction %s, not a valid move' % (y,x,dir))
-        board[y][x-2] = 'O'
-        board[y][x-1] = 'I'
-        board[y][x-0] = 'I'
-       
-    elif dir == DIR.RIGHT:
-        if x >= 7:
-            raise Exception('Unable to undo y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not (board[y][x+2] == 'I' and board[y][x+1] == 'O' and board[y][x+0] == 'O'):
-            raise Exception('Unable to undo y%sx%s in direction %s, not a valid move' % (y,x,dir))
-        board[y][x+2] = 'O'
-        board[y][x+1] = 'I'
-        board[y][x+0] = 'I' 
-
-    elif dir == DIR.UP:
-        if y <= 1:
-            raise Exception('Unable to undo y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not (board[y-2][x] == 'I' and board[y-1][x] == 'O' and board[y-0][x] == 'O'):
-            raise Exception('Unable to undo y%sx%s in direction %s, not a valid move' % (y,x,dir))
-        board[y-2][x] = 'O'
-        board[y-1][x] = 'I'
-        board[y-0][x] = 'I'
-
-    elif dir == DIR.DOWN:
-        if y >= 7:
-            raise Exception('Unable to undo y%sx%s in direction %s, To near the edge' % (y,x,dir))
-        if not (board[y+2][x] == 'I' and board[y+1][x] == 'O' and board[y+0][x] == 'O'):
-            raise Exception('Unable to undo y%sx%s in direction %s, not a valid move' % (y,x,dir))
-        board[y+2][x] = 'O'
-        board[y+1][x] = 'I'
-        board[y+0][x] = 'I'
-    else:
-        raise Exception('Unable to undo y%sx%s in direction %s, Unknown direction' % (y,x,repr(dir)))
 
 
 
