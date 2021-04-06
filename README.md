@@ -1,30 +1,26 @@
-# The Unknown-name game solver
-This is a game i've played multiple times thats quite easy to play, but i find it impossible to solve..
-What it's named i dont know and have not found out 
-
+# Peg Solitare game solver
+This is a game i've played multiple times thats with easy rules, but i find it impossible to solve..
 ## Gameplay
-It's game board is formed as a pluss sign with holes that can contain sticks.
+The game-board is formed as a pluss sign with holes that can contain sticks.
 In the initial board layout all holes without the center-most hole is fitted with a stick
 like show'n here:
 ```
-      I I I
-      I I I
-      I I I
-I I I I I I I I I
-I I I I O I I I I
-I I I I I I I I I
-      I I I
-      I I I
-      I I I
+    I I I
+    I I I
+I I I I I I I
+I I I O I I I
+I I I I I I I
+    I I I
+    I I I
 ```
 To play the game you take a stick and move it to a free hole, the stick can only be moved up/down or left/right and
 MUST jump over another stick to get there. The stick you jumped over is then removed from the board resulting in a new free hole.
 ex. here: 
 ```
-input:  I I I I 0 I I I I
-move:       |>>>^
+input:  I I I 0 I I I
+move:     |>>>^
 
-output: I I O O I I I I I
+output: I O O I I I I
 ```
 
 This moving goes on until you only have ONE stick left on the board
