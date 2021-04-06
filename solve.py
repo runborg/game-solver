@@ -22,15 +22,15 @@ class NoWrapList(list):
 
 
 init_board = NoWrapList([
-              NoWrapList([ ' ', ' ', ' ', 'I', 'I', 'I', ' ', ' ', ' ']),
-              NoWrapList([ ' ', ' ', ' ', 'I', 'I', 'I', ' ', ' ', ' ']),
-              NoWrapList([ ' ', ' ', ' ', 'I', 'I', 'I', ' ', ' ', ' ']),
-              NoWrapList([ 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I']),
-              NoWrapList([ 'I', 'I', 'I', 'I', 'O', 'I', 'I', 'I', 'I']),
-              NoWrapList([ 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I']),
-              NoWrapList([ ' ', ' ', ' ', 'I', 'I', 'I', ' ', ' ', ' ']),
-              NoWrapList([ ' ', ' ', ' ', 'I', 'I', 'I', ' ', ' ', ' ']),
-              NoWrapList([ ' ', ' ', ' ', 'I', 'I', 'I', ' ', ' ', ' ']),
+                NoWrapList('         '),
+                NoWrapList('   III   '),
+                NoWrapList('   III   '),
+                NoWrapList(' IIIIIII '),
+                NoWrapList(' IIIOIII '),
+                NoWrapList(' IIIIIII '),
+                NoWrapList('   III   '),
+                NoWrapList('   III   '),
+                NoWrapList('         '),
              ])
 
 
